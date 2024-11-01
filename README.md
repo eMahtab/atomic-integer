@@ -98,4 +98,6 @@ public class Main {
     }
 }
 ```
+**Using Synchronization:** By adding synchronized to the incrementCounter() method, we ensure that only one thread can increment the counter at a time.
+**Drawback:** This approach, while correct, is slower because it adds the overhead of acquiring and releasing a lock with each increment operation.
 
