@@ -72,7 +72,11 @@ public class Main {
 ```
 
 ## Using Synchronization with int or Integer :
-To avoid race conditions, we can synchronize access to the counter variable
+To avoid race conditions, we can synchronize access to the counter variable.
+
+**Using Synchronization:** By adding synchronized to the incrementCounter() method, we ensure that only one thread can increment the counter at a time.
+
+**Drawback:** This approach, while correct, is slower because it adds the overhead of acquiring and releasing a lock with each increment operation.
 ```java
 public class Main {
     private static int counter = 0;
@@ -98,6 +102,6 @@ public class Main {
     }
 }
 ```
-**Using Synchronization:** By adding synchronized to the incrementCounter() method, we ensure that only one thread can increment the counter at a time.
-**Drawback:** This approach, while correct, is slower because it adds the overhead of acquiring and releasing a lock with each increment operation.
+
+
 
