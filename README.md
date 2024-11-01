@@ -65,7 +65,7 @@ public class Main {
          t.join();
       }
 
-      System.out.println("Final counter value: " + counter);
+      System.out.println("Final counter value: " + counter); // this might print different value each time
    }
 }
 
