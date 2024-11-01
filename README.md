@@ -71,3 +71,31 @@ public class Main {
 
 ```
 
+## Using Synchronization with int or Integer :
+To avoid race conditions, we can synchronize access to the counter variable
+```java
+public class Main {
+    private static int counter = 0;
+    public static synchronized void incrementCounter() {
+        counter++;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread[] threads = new Thread[30];
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    incrementCounter();  // Synchronized increment
+                }
+            });
+            threads[i].start();
+        }
+        for (Thread t : threads) {
+            t.join();
+        }
+
+        System.out.println("Final counter value: " + counter); // this will always print 30000
+    }
+}
+```
+
