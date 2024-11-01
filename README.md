@@ -10,6 +10,8 @@ The java.util.concurrent.atomic.AtomicInteger class in Java, is used for handlin
 **Efficient Thread-Safe Updates:** By using atomic operations, AtomicInteger avoids the need for explicit synchronization (like using synchronized or Lock). This reduces overhead and increases performance when compared to traditional synchronization, especially in high-concurrency scenarios.
 
 # Using AtomicInteger
+Each thread increments the counter 1,000 times, and incrementAndGet() ensures each increment is atomic.
+The final output will be 30,000 (30 threads x 1,000 increments), with no race conditions or inconsistencies.
 ```java
 import java.util.concurrent.atomic.AtomicInteger;
 
