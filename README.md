@@ -39,3 +39,10 @@ public class Main {
 }
 
 ```
+
+# Understanding the issue in the multithreaded application 
+In a multi-threaded environment, operations on int or Integer are not atomic. For example, counter++ (increment operation) is actually a compound operation:
+1. Read the current value of counter.
+2. Increment it by 1.
+3. Write the new value back to counter.
+**Without atomicity, two threads can read the same value at the same time, both increment it, and then write the same result back, which means some increments will be lost.**
