@@ -47,3 +47,27 @@ In a multi-threaded environment, operations on int or Integer are not atomic. Fo
 3. Write the new value back to counter.
 
 **Without atomicity, two threads can read the same value at the same time, both increment it, and then write the same result back, which means some increments will be lost.**
+```java
+public class Main {
+   private static int counter = 0;
+
+   public static void main(String[] args) throws InterruptedException {
+      Thread[] threads = new Thread[30];
+      for (int i = 0; i < threads.length; i++) {
+         threads[i] = new Thread(() -> {
+            for (int j = 0; j < 1000; j++) {
+               counter++; // Non-atomic increment
+            }
+         });
+         threads[i].start();
+      }
+      for (Thread t : threads) {
+         t.join();
+      }
+
+      System.out.println("Final counter value: " + counter);
+   }
+}
+
+```
+
