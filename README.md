@@ -32,7 +32,7 @@ public class Main {
          t.join();
       }
       // Output final counter value
-      System.out.println("Final counter value: " + counter.get());
+      System.out.println("Final counter value: " + counter.get()); // it will always print 30000
    }
 }
 
